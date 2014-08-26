@@ -3,22 +3,22 @@
         "28-00042c66a9ff": {
             "id": "28-00042c66a9ff",
             "name": "Ablak",
-            "lastvalue": 21.687
+            "lastvalue": 21.875
         },
         "28-00042d40e2ff": {
             "id": "28-00042d40e2ff",
             "name": "Asztal",
-            "lastvalue": 21.375
+            "lastvalue": 21.562
         },
         "28-00042c641cff": {
             "id": "28-00042c641cff",
             "name": "Kint",
-            "lastvalue": 21.625
+            "lastvalue": 21.812
         },
         "28-00042c641dff": {
             "id": "28-00042c641dff",
             "name": "Kint2",
-            "lastvalue": -100
+            "lastvalue": null
         }
     }
 }

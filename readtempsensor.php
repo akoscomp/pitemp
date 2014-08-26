@@ -19,7 +19,7 @@ foreach ($sensors['tempsensors'] as $sensor) {
         fclose($handle);
         $sensors['tempsensors'][$sensor['id']]['lastvalue'] = $temp;
     } else {
-        $sensors['tempsensors'][$sensor['id']]['lastvalue'] = -100;
+        $sensors['tempsensors'][$sensor['id']]['lastvalue'] = null;
     }
 }
     file_put_contents($sensorsUrl, json_encode($sensors, JSON_PRETTY_PRINT));
