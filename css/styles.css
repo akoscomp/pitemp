@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014.08.09., 15:39:31
+    Author     : nagy.akos
+*/
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.page-header h1 {
+  text-align: center;
+
+}
+
+.container p {
+  text-align: center;
+
+}
+
+.kozepre {
+    text-align: center;
+}
+
+.vonal {
+    border-bottom: 1px solid #EEE;
+    margin-bottom: 8px;
+}
+
+
+.show-grid [class^="col-"] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(86, 61, 124, 0.15);
+    border: 1px solid rgba(86, 61, 124, 0.2);
+    padding-left: 0px;
+}
+
+.map-kozepre {
+    text-align: center;
+    margin-left: 15px;
+}
+
+.map-button, input[type="button"] {
+    background: white;
+    border-radius: 0px;
+}
+
+.lent {
+    border-bottom: none;
+}
+
+.fent {
+    border-bottom: none;
+}
+
+.szobak {
+    border: 1px solid;
+    background: yellow;
+}
+
+.kocka {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+}

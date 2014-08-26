@@ -1,0 +1,18 @@
+{
+    "name": "nagy.akos",
+    "tempsensorsdir": "/sys/bus/w1/devices/",
+    "tempsensors": {
+        "28-00042c66a9ff": {
+            "id": "28-00042c66a9ff",
+            "name": "Ablak"
+        },
+        "28-00042d40e2ff": {
+            "id": "28-00042d40e2ff",
+            "name": "Asztal"
+        },
+        "28-00042c641cff": {
+            "id": "28-00042c641cff",
+            "name": "Kint"
+        }
+    }
+}
