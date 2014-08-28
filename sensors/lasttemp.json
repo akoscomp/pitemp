@@ -3,22 +3,26 @@
         "28-00042c66a9ff": {
             "id": "28-00042c66a9ff",
             "name": "Ablak",
-            "lastvalue": 21.875
+            "lastvalue": 22.125,
+            "settemp": 23
         },
         "28-00042d40e2ff": {
             "id": "28-00042d40e2ff",
             "name": "Asztal",
-            "lastvalue": 21.562
+            "lastvalue": 21.937,
+            "settemp": 25
         },
         "28-00042c641cff": {
             "id": "28-00042c641cff",
             "name": "Kint",
-            "lastvalue": 21.812
+            "lastvalue": 22.062,
+            "settemp": 24.6
         },
         "28-00042c641dff": {
             "id": "28-00042c641dff",
             "name": "Kint2",
-            "lastvalue": null
+            "lastvalue": null,
+            "settemp": 23
         }
     }
 }

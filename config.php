@@ -13,6 +13,10 @@ $configUrl = "data/config.json";
 $jsonConfig = file_get_contents($configUrl);
 $config = json_decode($jsonConfig, TRUE);
 
+$sensorsUrl = "/home/akos/pitemp/sensors/lasttemp.json";
+$jsonConfig = file_get_contents($sensorsUrl);
+$sensors = json_decode($jsonConfig, TRUE);
+
 //include("functions.php");
 
 //if ($config['debug']) error_reporting(E_ALL);

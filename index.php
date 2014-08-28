@@ -1,8 +1,5 @@
 <?php
     include 'header.php';
-    $sensorsUrl = "/home/akos/pitemp/sensors/lasttemp.json";
-    $jsonConfig = file_get_contents($sensorsUrl);
-    $sensors = json_decode($jsonConfig, TRUE);
 ?>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -18,9 +15,8 @@
           
         // Create our data table out of JSON data loaded from server.
         var data = new google.visualization.DataTable(jsonData);
-
         var options = {
-          title: 'Hőmérséklet adatok'
+          title: 'Napi hőmérséklet adatok'
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
@@ -30,9 +26,7 @@
 
 <!-- Gombok -->    
     <div class="container">
-      <div class="page-header">
-        <h1>Hőmérséklet</h1>
-      </div>
+      <div class="page-header" />
         <div class="kozepre">
         <?php foreach ($sensors['tempsensors'] as $sensor) {
            echo '<div class="vonal">';

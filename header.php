@@ -16,7 +16,7 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Menu</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -25,9 +25,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="map.php">Map</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.php">Hőfokok</a></li>
+            <li><a href="map.php">Szobák</a></li>
+            <li><a href="chart.php">Grafikonok</a></li>
           </ul>
         </div>
       </div>
