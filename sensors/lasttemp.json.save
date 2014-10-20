@@ -5,32 +5,32 @@
             "name": "Kaz\u00e1nh\u00e1z",
             "lastvalue": null,
             "settemp": 23,
-            "difftemp": 1,
-            "pinstatus": true
+	    "difftemp": 1,
+	    "pinstatus": true
         },
         "28-00042d40e2ff": {
             "id": "28-00042d40e2ff",
             "name": "Konyha1",
             "lastvalue": null,
             "settemp": 23,
-            "difftemp": 1,
-            "pinstatus": true
+	    "difftemp": 1,
+	    "pinstatus": true
         },
         "28-00042c641cff": {
             "id": "28-00042c641cff",
             "name": "Szoba",
-            "lastvalue": 24.187,
+            "lastvalue": 23.875,
             "settemp": 24.6,
-            "difftemp": 1,
-            "pinstatus": true
+	    "difftemp": 1,
+	    "pinstatus": true
         },
         "28-00042d3d7cff": {
             "id": "28-00042d3d7cff",
             "name": "Konyha2",
             "lastvalue": null,
             "settemp": "22",
-            "difftemp": 1,
-            "pinstatus": true
+	    "difftemp": 1,
+	    "pinstatus": true
         }
     }
 }

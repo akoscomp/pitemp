@@ -162,3 +162,6 @@ body {
    height: 20%;
    width: 40%;
 }
+.btn-default .glyphicon-fire {
+    color: red;
+}

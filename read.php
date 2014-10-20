@@ -14,5 +14,6 @@ foreach ($sensors['tempsensors'] as $sensor) {
         $tempdata[$sensor['id']] = $sensor['lastvalue'];
     }
 
-$tempdata = json_encode($tempdata);
+$tempdata = json_encode($sensors['tempsensors']);
+//$tempdata = json_encode($tempdata);
 print_r($tempdata);

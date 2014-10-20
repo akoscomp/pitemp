@@ -27,8 +27,8 @@ $tempdata['rows'][]=array('c' => $arr);
 
 
 $handle = fopen($fileTempLog, "w");
-//fwrite($handle, json_encode($tempdata));
-fwrite($handle, json_encode($tempdata, JSON_PRETTY_PRINT));
+fwrite($handle, json_encode($tempdata));
+//fwrite($handle, json_encode($tempdata, JSON_PRETTY_PRINT));
 fclose($handle);
 
 ?>

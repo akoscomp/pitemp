@@ -61,9 +61,9 @@
         chart.draw(data, options);
       }
 </script>
-<div id="chart_div_day" style="width: 900px; height: 500px;"></div>
-<div id="chart_div_week" style="width: 900px; height: 500px;"></div>
-<div id="chart_div_year" style="width: 900px; height: 500px;"></div>
+<div id="chart_div_day" style="width: 100%; height: 500px;"></div>
+<div id="chart_div_week" style="width: 100%; height: 500px;"></div>
+<div id="chart_div_year" style="width: 100%; height: 500px;"></div>
 
 
 <?php

@@ -30,11 +30,11 @@
         <div class="kozepre">
         <?php foreach ($sensors['tempsensors'] as $sensor) {
            echo '<div class="vonal">';
-           echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-lg btn-default disabled" onclick="read()">'.$sensor["name"].': 00.0&deg;C</button></p>';
+           echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-lg btn-default disabled" onclick="read()"><span class="badge"></span>'.$sensor["name"].': 00.0&deg;C</button></p>';
         ?>
             <div class="btn-group">
                 <button type="button" class="btn btn-danger" onclick="changeTemp(this)">-</button>
-                <button type="button" class="btn btn-info disabled"><?php echo number_format($sensor['settemp'],1); ?></button>
+                <button id="setTemp<?php echo $sensor["id"] ?>" type="button" class="btn btn-info disabled" onclick="setTemp(this)"><?php echo number_format($sensor['settemp'],1); ?></button>
                 <button type="button" class="btn btn-success" onclick="changeTemp(this)">+</button>
             </div>
             <p></p>
@@ -42,7 +42,7 @@
             echo '</div>';
         } ?>
             <p>Frissítve <span id='counter' style='font-weight:500; font-size:20px; padding:0px 2px;'>0</span> alkalommal.</p>
-            <div id="chart_div" style="width: 700px; height: 400px;"></div>
+            <div id="chart_div" style="width: 80%; height: 400px;"></div>
         </div>
   </div>
     </div>
