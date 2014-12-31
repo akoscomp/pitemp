@@ -26,26 +26,73 @@
 
 <!-- Gombok -->    
     <div class="container">
-      <div class="page-header" />
-        <div class="kozepre">
-        <?php foreach ($sensors['tempsensors'] as $sensor) {
-           echo '<div class="vonal">';
-           echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-lg btn-default disabled" onclick="read()"><span class="badge"></span>'.$sensor["name"].': 00.0&deg;C</button></p>';
-        ?>
-            <div class="btn-group">
-                <button type="button" class="btn btn-danger" onclick="changeTemp(this)">-</button>
-                <button id="setTemp<?php echo $sensor["id"] ?>" type="button" class="btn btn-info disabled" onclick="setTemp(this)"><?php echo number_format($sensor['settemp'],1); ?></button>
-                <button type="button" class="btn btn-success" onclick="changeTemp(this)">+</button>
-            </div>
-            <p></p>
+        <div class="page-header" ></div>
+      <div class="kozepre">
+          <button id="boilerpower" name="boilerpower" type="button" class="btn btn-lg btn-default disabled">
+            <?php
+                if ($sensors['boiler']['power']) {
+                    $text = '<span class="glyphicon glyphicon-off" style="color: green;"></span> Kazán: On'; 
+                } else {
+                    $text = '<span class="glyphicon glyphicon-off" style="color: red;"></span> Kazán: Off'; 
+                }
+                echo $text;
+            ?>
+          </button>
+      </div>
+      <div class="kozepre">
+        <div id="container" class="js-masonry"
+             data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
         <?php
-            echo '</div>';
-        } ?>
-            <p>Frissítve <span id='counter' style='font-weight:500; font-size:20px; padding:0px 2px;'>0</span> alkalommal.</p>
-            <div id="chart_div" style="width: 80%; height: 400px;"></div>
+          foreach ($sensors['groups'] as $group) {
+            echo '<div class="item szobauj">';  
+            foreach ($sensors['tempsensors'] as $sensor) {
+              if ( $sensor["group"] === $group) { 
+                if ( $sensor['type'] === 'heat' ) {
+                    echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-lg btn-default disabled" onclick="read()"><span class="glyphicon glyphicon-fire" style="{ visibility: hidden; }"></span>'.$sensor["name"].': <span class="btTemp">00.0</span>&deg;C</button></p>';
+                    echo '<div class="btn-group">';
+                    echo '<button type="button" class="btn btn-xs btn-danger" onclick="changeTemp(this)">-</button>';
+                    echo '<button id="setTemp'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="settemp" type="button" class="btn btn-xs btn-info disabled" onclick="setTemp(this)">'.number_format($sensor['settemp'],1).'</button>';
+                    echo '<button type="button" class="btn btn-xs btn-success" onclick="changeTemp(this)">+</button>&nbsp;&nbsp;';
+                    echo '</div>';
+                        if ($sensor['power'] && $sensor['isauto']) {
+                            echo '<button type="button" id="turnOnOff'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="off" class="btn btn-xs btn-danger" onclick="turnOnOff(this)" title="Turn Off"><span class="glyphicon glyphicon-off"></span></button>&nbsp;';
+                        } elseif (!$sensor['power'] && $sensor['isauto']) {
+                            echo '<button type="button" id="turnOnOff'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="on" class="btn btn-xs btn-success" onclick="turnOnOff(this)" title="Turn On"><span class="glyphicon glyphicon-off"></span></button>&nbsp;';
+                        }
+                    echo '<p></p>';
+                } elseif ( $sensor['type'] === 'air' ) {
+                    echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-lg btn-success disabled" onclick="read()">'.$sensor["name"].': 00.0&deg;C</button>&nbsp;';
+                } elseif ( $sensor['type'] === 'floor' || $sensor['type'] === 'wall') {
+                    echo '<p><button id="'.$sensor["id"].'" name="'.$sensor["name"].'" type="button" class="btn btn-sm btn-info disabled" onclick="read()">'.$sensor["name"].': 00.0&deg;C</button>&nbsp;';
+                    if ( $sensor['isauto'] === true ) {
+                        echo '<div class="btn-group">';
+                        echo '<button type="button" class="btn btn-xs btn-danger" onclick="changeTemp(this)">-</button>';
+                        echo '<button id="minTemp'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="mintemp" type="button" class="btn btn-xs btn-info disabled" onclick="setTemp(this)">'.number_format($sensor['mintemp'],1).'</button>';
+                        echo '<button type="button" class="btn btn-xs btn-success" onclick="changeTemp(this)">+</button>&nbsp;&nbsp;';
+                        echo '</div>';
+                        if ($sensor['power'])
+                            echo '<button type="button" id="turnOnOff'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="off" class="btn btn-xs btn-danger" onclick="turnOnOff(this)" title="Turn Off"><span class="glyphicon glyphicon-off"></span></button>&nbsp;';
+                        else
+                            echo '<button type="button" id="turnOnOff'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="on" class="btn btn-xs btn-success" onclick="turnOnOff(this)" title="Turn On"><span class="glyphicon glyphicon-off"></span></button>&nbsp;';
+                        echo '<div class="btn-group">';
+                        echo '<button type="button" class="btn btn-xs btn-danger" onclick="changeTemp(this)">-</button>';
+                        echo '<button id="maxTemp'.$sensor["id"].'" data-sensorid="'.$sensor["id"].'" data-type="maxtemp" type="button" class="btn btn-xs btn-info disabled" onclick="setTemp(this)">'.number_format($sensor['maxtemp'],1).'</button>';
+                        echo '<button type="button" class="btn btn-xs btn-success" onclick="changeTemp(this)">+</button>&nbsp;&nbsp;';
+                        echo '</div><p></p>';
+                        }
+                    }
+                }
+            }
+          echo '</div>';
+          }
+        ?>
         </div>
-  </div>
+        <p>Frissítve <span id='counter' style='font-weight:500; font-size:20px; padding:0px 2px;'>0</span> alkalommal.</p>
+        <div id="chart_div" style="width: 80%; height: 400px;"></div>
+      </div>
     </div>
+
+<script src="js/masonry.pkgd.min.js"></script>
 
 <?php
     include 'footer.php';

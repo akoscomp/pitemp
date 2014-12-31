@@ -64,8 +64,8 @@ body {
     margin-top: 10px;
     position: relative;
     font: 12px Arial;
-    width: 360px;
-    height: 300px;
+    width: 90%;
+    padding-top: 90%;
 }
 .szoba {
    height: 25%;
@@ -165,3 +165,17 @@ body {
 .btn-default .glyphicon-fire {
     color: red;
 }
+
+
+.szobauj{
+   width: 200px;
+   padding-top: 10px;
+   border-radius: 7px 7px 7px 7px;
+   position: relative;
+   border: 1px solid #e9e9e9;
+   //border: none;
+   //background-color: #e9e9e9;
+   text-align: center;
+   margin: 10px;
+}
+

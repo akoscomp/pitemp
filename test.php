@@ -3,19 +3,17 @@
 ?>
 
 <div class="container">
+<div id="container" class="js-masonry"
+  data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
 
-<p><input type="checkbox" name="my-checkbox" checked></p>
-        <div class="kozepre">
-          <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-              <input type="radio" name="options" id="on" checked> On
-            </label>
-            <label class="btn btn-primary">
-              <input type="radio" name="options" id="off"> Off
-            </label>
-          </div>
-        </div>
+<div class="item szobauj">...</div>
+  <div class="item w2 szobauj">...</div>
+  <div class="item szobauj">...</div>
+    
+    
 </div>
+</div>
+<script src="js/masonry.pkgd.min.js"></script>
 
 <?php
     include 'footer.php';

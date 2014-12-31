@@ -22,12 +22,13 @@ $tempdata = json_decode($jsonTempLog, TRUE);
 $date = getdate();
 $logdate = $date[0]*1000;
 
+$oneh = 3600;
 $fourh = 14400;
 $sixh = 21600;
 $day = 86400;
 $week = 604800;
 $month = 18144000;
-$precision = $fourh;
+$precision = $oneh;
 $showtime = $date[0] - $week;
 
 foreach ($tempdata['rows'] as $key => $row) {

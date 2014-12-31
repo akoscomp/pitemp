@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+require_once('authenticate.php');
+include_once("config.php");
+?>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -28,11 +32,14 @@
             <li><a href="index.php">Hőfokok</a></li>
             <li><a href="map.php">Szobák</a></li>
             <li><a href="chart.php">Grafikonok</a></li>
+            <?php
+            if(!loggedIn() || (isset($_SESSION["username"]) && ($_SESSION["username"] == 'guest'))) {
+                echo '<li><a href="login.php">Login</a></li>';
+            } else {
+                echo '<li><a href="logout.php">Logout</a></li>';
+            }
+            ?>
           </ul>
         </div>
       </div>
     </div>
-
-    <?php
-        include_once("config.php");
-    ?>

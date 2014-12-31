@@ -8,6 +8,10 @@
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
+        var options = {
+          title: '',
+          legend: {position: 'top', textStyle: {fontSize: 10}, maxLines: 10}
+        };
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -19,9 +23,11 @@
           
         // Create our data table out of JSON data loaded from server.
         var data = new google.visualization.DataTable(jsonDataDay);
-        var options = {
-          title: 'Napi hőmérséklet adatok'
-        };
+        //var options = {
+        //  title: 'Napi hőmérséklet adatok',
+        //  legend: {position: 'bottom', textStyle: {fontSize: 10}}
+        //};
+        options.title = 'Napi hőmérséklet adatok';
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div_day'));
         chart.draw(data, options);
@@ -36,9 +42,7 @@
           
         // Create our data table out of JSON data loaded from server.
         var data = new google.visualization.DataTable(jsonDataDay);
-        var options = {
-          title: 'Heti hőmérséklet adatok'
-        };
+        options.title = 'Heti hőmérséklet adatok';
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div_week'));
         chart.draw(data, options);
@@ -53,9 +57,7 @@
           
         // Create our data table out of JSON data loaded from server.
         var data = new google.visualization.DataTable(jsonDataDay);
-        var options = {
-          title: 'Éves hőmérséklet adatok'
-        };
+        options.title = 'Éves hőmérséklet adatok';
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div_year'));
         chart.draw(data, options);

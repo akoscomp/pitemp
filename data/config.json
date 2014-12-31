@@ -1,4 +1,12 @@
 {
+    "groups": {
+        "admin":["akos"]
+    },
     "name": "nagy.akos",
-    "tempsensorsdir": "/sys/bus/w1/devices/"
+    "tempsensorsdir": "/sys/bus/w1/devices/",
+    "autentication":0,
+    "ldapauth":0,
+    "ldapServer":"ldap://192.168.7.10",
+    "ldapDn":"codespring",
+    "guestaccess":1
 }

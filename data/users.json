@@ -1,0 +1,20 @@
+{
+    "akos": {
+        "enable": 1,
+        "fullname": "Nagy \u00c1kos",
+        "password": "e4227b299b0b804fe74fc485753197776b9955f153628817332997748e7a66e2",
+        "email": "nagy.akos@codespring.ro"
+    },
+    "akos2": {
+        "enable": 1,
+        "password": "5d50125a73452299ba432e44a1679bee53f0ab5e2725efb5b3c0f1838ec8cf0a",
+        "fullname": "akos2",
+        "email": "akos@libreoffice.ro"
+    },
+    "akos4": {
+        "enable": 1,
+        "password": "e4227b299b0b804fe74fc485753197776b9955f153628817332997748e7a66e2",
+        "fullname": "akos4 full",
+        "email": "akos@akos.ro"
+    }
+}

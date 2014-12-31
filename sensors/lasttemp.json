@@ -1,36 +1,105 @@
 {
+    "groups": [
+        "kint",
+        "kazanhaz",
+        "ebedlo",
+        "szoba3",
+        "furdoszoba"
+    ],
+    "boiler": {
+        "power": true
+    },
     "tempsensors": {
+        "28-000006152627": {
+            "id": "28-000006152627",
+            "isauto": false,
+            "name": "Kazanhaz",
+            "lastvalue": 2.25,
+            "settemp": 3,
+            "difftemp": 0.5,
+            "pinstatus": false,
+            "group": "kazanhaz",
+            "type": "air"
+        },
+        "28-000006153cc5": {
+            "id": "28-000006153cc5",
+            "isauto": false,
+            "name": "Kint",
+            "lastvalue": -3.437,
+            "settemp": 3,
+            "difftemp": 0.5,
+            "pinstatus": true,
+            "group": "kint",
+            "type": "air"
+        },
         "28-00042c66a9ff": {
             "id": "28-00042c66a9ff",
-            "name": "Kaz\u00e1nh\u00e1z",
-            "lastvalue": null,
-            "settemp": 23,
-            "difftemp": 1,
-            "pinstatus": true
+            "isauto": false,
+            "name": "Konyha",
+            "lastvalue": 15.312,
+            "settemp": 19,
+            "difftemp": 0.5,
+            "pinstatus": true,
+            "group": "ebedlo",
+            "type": "heat"
         },
         "28-00042d40e2ff": {
             "id": "28-00042d40e2ff",
+            "isauto": false,
             "name": "Konyha1",
-            "lastvalue": null,
+            "lastvalue": 19.687,
             "settemp": 23,
-            "difftemp": 1,
-            "pinstatus": true
-        },
-        "28-00042c641cff": {
-            "id": "28-00042c641cff",
-            "name": "Szoba",
-            "lastvalue": 24.187,
-            "settemp": 24.6,
-            "difftemp": 1,
-            "pinstatus": true
+            "difftemp": 0.5,
+            "pinstatus": false,
+            "relayid": 1,
+            "group": "ebedlo",
+            "type": "floor"
         },
         "28-00042d3d7cff": {
             "id": "28-00042d3d7cff",
+            "isauto": true,
             "name": "Konyha2",
-            "lastvalue": null,
-            "settemp": "22",
-            "difftemp": 1,
-            "pinstatus": true
+            "lastvalue": 20.687,
+            "settemp": 22,
+            "difftemp": 0.5,
+            "pinstatus": true,
+            "relayid": 1,
+            "group": "ebedlo",
+            "type": "floor"
+        },
+        "28-000006152465": {
+            "id": "28-000006152465",
+            "isauto": false,
+            "name": "NSzoba",
+            "lastvalue": 13.937,
+            "settemp": 20,
+            "difftemp": 0.5,
+            "pinstatus": true,
+            "group": "szoba3",
+            "type": "heat"
+        },
+        "28-000006154dc6": {
+            "id": "28-000006154dc6",
+            "isauto": true,
+            "name": "NSzoba fal",
+            "lastvalue": 19.687,
+            "settemp": 20,
+            "difftemp": 0.5,
+            "pinstatus": true,
+            "relayid": 2,
+            "group": "szoba3",
+            "type": "wall"
+        },
+        "28-000006156648": {
+            "id": "28-000006156648",
+            "isauto": false,
+            "name": "Furdoszoba",
+            "lastvalue": 18.5,
+            "settemp": 20,
+            "difftemp": 0.5,
+            "pinstatus": false,
+            "group": "furdoszoba",
+            "type": "heat"
         }
     }
 }
