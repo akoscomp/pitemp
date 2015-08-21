@@ -4,6 +4,9 @@
     A sensors mappaba kiirja a szenzorok ertekeit,
  * kinyitja, illetve bezarja a csapot, ha futeni kell
  * cron futtatja
+ * Ez egy egyszerusitett verzio. Nem nyit csapot, csak elzarja a kazant ha kell,
+ * es szinkronizalja a szenzorertekeket.
+ * Cron 5 percenkent futatthatja.
  */
 
 $sensorsUrl = "/home/akos/pitemp/sensors/lasttemp.json";
@@ -42,36 +45,6 @@ function switchRelay($relayid, $sensor, $mess2) {
 
 foreach ($sensors['tempsensors'] as $sensor) {
    $sensors['tempsensors'][$sensor['id']]['lastvalue'] = $cache['tempsensors'][$sensor['id']]['lastvalue'];
-  
-   if ( $sensor['isauto'] ) {
-       if($sensor['type'] === "heat" ) {
-	  if ($sensor['pinstatus']) {
-            if ($sensor['lastvalue'] && ($sensor['lastvalue'] > ($sensor['settemp']+$sensor['difftemp']))) {
-                $mess2 = 'switch-off-intervallum-felett';
-                $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-            }
-          } else {
-            if ( $sensor['lastvalue'] && ($sensor['lastvalue'] < ($sensor['settemp']-$sensor['difftemp']))) {
-                $mess2 = 'switch-on-intervallum-alatt';
-                $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-            }
-          }
-       } elseif ($sensor['type'] === "wall" ||  $sensor['type'] === "floor") {
-            if ( $sensor['mintemp'] && $sensor['maxtemp'] ) {
-	      if ($sensor['pinstatus']) {
-                if ( ($sensor['maxtemp'] < $sensor['lastvalue']) ) {
-                $mess2 = 'switch-off-tul-meleg';
-                    $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-                }
-              } else {
-                if ( ($sensor['mintemp'] > $sensor['lastvalue'])) {
-                $mess2 = 'switch-on-tul-hideg';
-                    $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-                }
-              }
-            }
-       }
-   } //end isauto
 } //end foreach
 
 $out = exec('/usr/local/bin/gpio read 0');

@@ -77,7 +77,7 @@ function setTemp(bObject)
         async: true
     }).done(function(data) {
         console.log(data);
-        if (data) {
+        if (data.success) {
             if (type == 'settemp') {
                 var button = document.getElementById("setTemp" + id);
             }
@@ -93,8 +93,8 @@ function setTemp(bObject)
 }
 
 function turnOnOff(bObject) {
-    id=bObject.dataset.sensorid;
-    type=bObject.dataset.type;
+    var id=bObject.dataset.sensorid;
+    var type=bObject.dataset.type;
     var temp = 0;
     $.ajax(
     {
@@ -105,7 +105,7 @@ function turnOnOff(bObject) {
         async: true
     }).done(function(data) {
         console.log(data);
-        if (data) {
+        if (data.success) {
             var button = document.getElementById("turnOnOff" + id);
             if (type == 'on') {
                 bObject.className = "btn btn-xs btn-danger";
@@ -116,6 +116,9 @@ function turnOnOff(bObject) {
                 bObject.className = "btn btn-xs btn-success";
                 bObject.title="TurnOn";
                 bObject.dataset.type="on";
+            }
+            if (id == 'boilerpower') {
+                button.textContent="Kazán: " + data.message1;
             }
         }
     });

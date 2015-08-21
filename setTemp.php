@@ -7,6 +7,7 @@ include_once("config.php");
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
 $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_SPECIAL_CHARS);
 $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
+$message1 = "";
 
 $header = "Content-Type: application/json";
 header($header);
@@ -27,6 +28,18 @@ if ( loggedIn() && inGroup('admin') ) {
     if ($type === "on") {
         $sensors['tempsensors'][$id]['power'] = true;
     }
+    if ($id === "boilerpower" && $type === "On") {
+        exec('/usr/local/bin/gpio write 0 1');
+        exec($exec);
+        $sensors['boiler']['power'] = false;
+        $message1 = 'Off';
+    }
+    if ($id === "boilerpower" && $type === "Off") {
+        exec('/usr/local/bin/gpio write 0 0');
+        exec($exec);
+        $sensors['boiler']['power'] = true;
+        $message1 = 'On';
+    }
     $message = "Change ".$type." for sensor ".$id." to ".floatval($temp);
     pitemplog($message);
     
@@ -37,4 +50,8 @@ if ( loggedIn() && inGroup('admin') ) {
     $success = false;
 }
 
-print json_encode($success);
+$results = array(
+    "success" => $success,
+    "message1" => $message1,
+);
+print json_encode($results);

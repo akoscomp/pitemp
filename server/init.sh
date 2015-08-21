@@ -16,3 +16,6 @@
 /usr/local/bin/gpio mode 5 out
 /usr/local/bin/gpio mode 6 out
 
+/opt/owfs/bin/owserver --w1 -p 4304
+
+/opt/owfs/bin/owfs --allow_other --mountpoint=/mnt/1wire -s localhost:4304

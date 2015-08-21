@@ -28,16 +28,16 @@
     <div class="container">
         <div class="page-header" ></div>
       <div class="kozepre">
-          <button id="boilerpower" name="boilerpower" type="button" class="btn btn-lg btn-default disabled">
-            <?php
-                if ($sensors['boiler']['power']) {
-                    $text = '<span class="glyphicon glyphicon-off" style="color: green;"></span> Kazán: On'; 
-                } else {
-                    $text = '<span class="glyphicon glyphicon-off" style="color: red;"></span> Kazán: Off'; 
-                }
-                echo $text;
-            ?>
-          </button>
+        <?php
+          $power = ($sensors['boiler']['power']) ? 'On' : 'Off';
+          $color = ($sensors['boiler']['power']) ? 'green' : 'red';
+        ?>
+        <div class="btn-group">
+            <button type="button" id="boilerpower" data-sensorid="boilerpower" data-type="<?php echo $power ?>" class="btn btn-default" onclick="turnOnOff(this)">
+              <span class="glyphicon glyphicon-off" style="color: <?php echo $color ?>;"></span>
+            </button>
+            <button type="button" id="turnOnOffboilerpower" class="btn btn-default disabled" aria-expanded="false">Kazán: <?php echo $power ?></button>
+        </div>
       </div>
       <div class="kozepre">
         <div id="container" class="js-masonry"

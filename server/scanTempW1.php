@@ -27,14 +27,14 @@ function switchRelay($relayid, $sensor, $mess2) {
 	$mess = 'OFF';
         $text = 'id: '.$relayid.', '.$mess.', mess2: '.$mess2;
         pitemplog($text);
-        $exec = '/home/akos/pitemp/server/relay.sh '.$relayid.' '.$mess;
+	$exec = '/home/akos/pitemp/server/relay1w.sh '.$relayid.' '.$mess;
         exec($exec);
 	return $return = false;
     } else {
 	$mess = 'ON';
         $text = 'id: '.$relayid.', '.$mess.', mess2: '.$mess2;
         pitemplog($text);
-        $exec = '/home/akos/pitemp/server/relay.sh '.$relayid.' '.$mess;
+	$exec = '/home/akos/pitemp/server/relay1w.sh '.$relayid.' '.$mess;
         exec($exec);
 	return $return = true;
     }
@@ -44,19 +44,7 @@ foreach ($sensors['tempsensors'] as $sensor) {
    $sensors['tempsensors'][$sensor['id']]['lastvalue'] = $cache['tempsensors'][$sensor['id']]['lastvalue'];
   
    if ( $sensor['isauto'] ) {
-       if($sensor['type'] === "heat" ) {
-	  if ($sensor['pinstatus']) {
-            if ($sensor['lastvalue'] && ($sensor['lastvalue'] > ($sensor['settemp']+$sensor['difftemp']))) {
-                $mess2 = 'switch-off-intervallum-felett';
-                $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-            }
-          } else {
-            if ( $sensor['lastvalue'] && ($sensor['lastvalue'] < ($sensor['settemp']-$sensor['difftemp']))) {
-                $mess2 = 'switch-on-intervallum-alatt';
-                $sensors['tempsensors'][$sensor['id']]['pinstatus']=switchRelay($sensor["relayid"], $sensor, $mess2);
-            }
-          }
-       } elseif ($sensor['type'] === "wall" ||  $sensor['type'] === "floor") {
+    if ( $sensor['type'] === "floor" ) {
             if ( $sensor['mintemp'] && $sensor['maxtemp'] ) {
 	      if ($sensor['pinstatus']) {
                 if ( ($sensor['maxtemp'] < $sensor['lastvalue']) ) {

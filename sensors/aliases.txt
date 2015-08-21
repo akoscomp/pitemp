@@ -1,0 +1,11 @@
+28.272615060000 = temp_kazanhaz
+28.486615060000 = temp_furdoszoba
+28.652415060000 = temp_nagyszoba
+28.C53C15060000 = temp_kint
+28.C64D15060000 = temp_nagyszoba_fal
+28.FF7C3D2D0400 = temp_konyha2
+28.FFA9662C0400 = temp_konyha
+28.FFE2402D0400 = temp_konyha1
+3A.03ED15000000 = gpio_1
+3A.970413000000 = gpio_2
+
