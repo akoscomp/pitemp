@@ -1,0 +1,19 @@
+{
+    "heatGroups": {
+        "1": [
+            "gyerekek"
+        ],
+        "2": [
+            "furdo",
+            "konyha",
+            "nappali",
+            "halo"
+        ]
+    },
+    "lastGroup": 2,
+    "heatPause": 10,
+    "heatTime": 20,
+    "heatStart": 1488568621,
+    "dayTemp": 21,
+    "nightTemp": 21
+}
