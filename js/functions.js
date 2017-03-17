@@ -4,6 +4,43 @@
  * and open the template in the editor.
  */
 
+function turnOnOff(bObject) {
+    var id=bObject.dataset.sensorid;
+    var type=bObject.dataset.type;
+    var temp = 0;
+    $.ajax(
+    {
+        type: "POST",
+        url: "setTemp.php",
+        data: { id: id, temp: temp, type: type },
+        dataType: "json",
+        async: true
+    }).done(function(data) {
+        console.log(data);
+        if (data.success) {
+            var button = document.getElementById("turnOnOff" + id);
+            if (type == 'on') {
+                bObject.className = "btn btn-xs btn-danger";
+                bObject.title="TurnOff";
+                bObject.dataset.type="off";
+            }
+            if (type == 'off') {
+                bObject.className = "btn btn-xs btn-success";
+                bObject.title="TurnOn";
+                bObject.dataset.type="on";
+            }
+            if (id == 'boilerpower') {
+                button.textContent="Kazán: " + data.message1;
+            }
+        }
+    });
+}
+
+function pushButton()
+{
+    alert('aa');
+}
+
 function read()
 {
     $.ajax(
@@ -92,21 +129,13 @@ function setTemp(bObject)
     });
 }
 
-function turnOnOff(bObject) {
-    var id=bObject.dataset.sensorid;
-    var type=bObject.dataset.type;
-    var temp = 0;
-    $.ajax(
-    {
-        type: "POST",
-        url: "setTemp.php",
-        data: { id: id, temp: temp, type: type },
-        dataType: "json",
-        async: true
-    }).done(function(data) {
+
+function readGpio(id) {
+    $.get( "api/getGpio.php", {  id: id} )
+     .done(function(data) {
         console.log(data);
         if (data.success) {
-            var button = document.getElementById("turnOnOff" + id);
+            var button = document.getElementById("turnOnOffboilerpower");
             if (type == 'on') {
                 bObject.className = "btn btn-xs btn-danger";
                 bObject.title="TurnOff";

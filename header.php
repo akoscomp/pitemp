@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-require_once('authenticate.php');
-include_once("config.php");
-?>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -12,6 +8,12 @@ include_once("config.php");
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/bootstrap-switch.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="http://jchavannes.com/include/scripts/3p/jquery.timer.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!--<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>-->
+        <script src="js/bootstrap-switch.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.flot.min.js"></script>
     </head>
     <body>
     
@@ -32,14 +34,11 @@ include_once("config.php");
             <li><a href="index.php">Hőfokok</a></li>
             <li><a href="map.php">Szobák</a></li>
             <li><a href="chart.php">Grafikonok</a></li>
-            <?php
-            if(!loggedIn() || (isset($_SESSION["username"]) && ($_SESSION["username"] == 'guest'))) {
-                echo '<li><a href="login.php">Login</a></li>';
-            } else {
-                echo '<li><a href="logout.php">Logout</a></li>';
-            }
-            ?>
           </ul>
         </div>
       </div>
     </div>
+
+    <?php
+        include_once("functions.php");
+    ?>

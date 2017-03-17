@@ -1,5 +1,4 @@
 <?php
-require_once('authenticate.php');
 include_once("config.php");
 /* 
     A beirja a faljba a beallitott homersekletet.
@@ -7,12 +6,13 @@ include_once("config.php");
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
 $temp = filter_input(INPUT_POST, 'temp', FILTER_SANITIZE_SPECIAL_CHARS);
 $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
+
 $message1 = "";
 
 $header = "Content-Type: application/json";
+
 header($header);
 
-if ( loggedIn() && inGroup('admin') ) {
     if ($type === "settemp") {
         $sensors['tempsensors'][$id]['settemp'] = floatval($temp);
     }
@@ -44,14 +44,11 @@ if ( loggedIn() && inGroup('admin') ) {
     pitemplog($message);
     
     file_put_contents($sensorsUrl, json_encode($sensors, JSON_PRETTY_PRINT));
-
     $success = true;
-} else {
-    $success = false;
-}
 
 $results = array(
     "success" => $success,
     "message1" => $message1,
 );
+
 print json_encode($results);
